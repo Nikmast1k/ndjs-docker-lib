@@ -1,0 +1,25 @@
+services:
+  storage:
+    image: redis
+    volumes:
+      - ./data:/data
+  counter:
+    image: nikmast1k/ndjs-counter:latest
+    container_name: counter
+    environment:
+      - REDIS_URL=redis://storage
+      - PORT=4000
+    ports:
+      - 40:4000
+    depends_on:
+      - storage
+  crud:
+    image: nikmast1k/ndjs-crud:latest
+    container_name: crud
+    environment:
+      - PORT=3002
+      - COUNTER_URL=http://counter:4000
+    ports:
+      - 80:3002
+    depends_on:
+      - counter

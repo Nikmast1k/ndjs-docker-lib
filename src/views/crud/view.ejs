@@ -1,0 +1,30 @@
+<%- include('../port/layout-start', {title: title}) %>
+<%- include('../port/menu') %>
+<h1><%= title %></h1>
+
+<div class="row">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-body">
+
+                <h5 class="card-title"><%= crud.title %></h5>
+                <p class="card-description"> Views: <%= views %></p>
+                <p class="card-description"> Description: <%= crud.description %></p>
+                <p class="card-authors"> Authors: <%= crud.authors %></p>
+                <p class="card-favourite"> Favourite: <%= crud.favourite %></p>
+                <p class="card-fileCover"> File Cover: <%= crud.fileCover %></p>
+                <p class="card-fileName"> File Name: <%= crud.fileName %></p>
+                <p class="card-fileName"> Id: <%= crud.id %></p>
+                <div class="text-right">
+                    <a class="btn btn-sm btn-primary" href="/crud/update/<%= crud.id %>">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../port/layout-end') %>
